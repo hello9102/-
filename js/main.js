@@ -9,7 +9,7 @@ city.innerText = "北京"
 function searchContent() {
     const searchTxt = document.querySelector(".search_txt");
     if(searchTxt.value != '') {
-        const cityUrl = `https://geoapi.heweather.net/v2/city/lookup?location=${searchTxt.value}&mode=fuzzy&key=b1eac8ade8b749bfb154b194a06964a4`;
+        const cityUrl = `https://geoapi.heweather.net/v2/city/lookup?location=${searchTxt.value}&mode=fuzzy&key=6911bd750d504bd882c64c4f35508433`;
         todayWeather(cityUrl);
         futureWeather(cityUrl);
         lifeStyle(cityUrl);
@@ -63,7 +63,7 @@ function removeItem() {
     historied.innerHTML = '';
 }
 //天气实况
-let todayWeatherUrl = `https://devapi.heweather.net/v7/weather/now?location=${id}&key=b1eac8ade8b749bfb154b194a06964a4`;
+let todayWeatherUrl = `https://devapi.heweather.net/v7/weather/now?location=${id}&key=6911bd750d504bd882c64c4f35508433`;
 async function todayWeather(url) {
     try{
         //获取Dom节点
@@ -80,7 +80,7 @@ async function todayWeather(url) {
             id = res.data.location[0].id;
             cityName = res.data.location[0].name;
             city.innerText = `${cityName}`;
-            todayWeatherUrl = `https://devapi.heweather.net/v7/weather/now?location=${id}&key=b1eac8ade8b749bfb154b194a06964a4`;
+            todayWeatherUrl = `https://devapi.heweather.net/v7/weather/now?location=${id}&key=6911bd750d504bd882c64c4f35508433`;
             historyItem();
         }
         res = await axios.get(todayWeatherUrl);
@@ -98,7 +98,7 @@ async function todayWeather(url) {
     }
 }
 //未来三天预报
-let futureWeatherUrl = `https://devapi.heweather.net/v7/weather/3d?location=${id}&key=b1eac8ade8b749bfb154b194a06964a4`;
+let futureWeatherUrl = `https://devapi.heweather.net/v7/weather/3d?location=${id}&key=6911bd750d504bd882c64c4f35508433`;
 async function futureWeather(url) {
     try {
         //获取Dom节点
@@ -112,7 +112,7 @@ async function futureWeather(url) {
             return;
         }else if(url != futureWeatherUrl) {
             id = res.data.location[0].id;
-            futureWeatherUrl = `https://devapi.heweather.net/v7/weather/3d?location=${id}&key=b1eac8ade8b749bfb154b194a06964a4`;
+            futureWeatherUrl = `https://devapi.heweather.net/v7/weather/3d?location=${id}&key=6911bd750d504bd882c64c4f35508433`;
         }
         res = await axios.get(futureWeatherUrl);
         //天气icon
@@ -135,7 +135,7 @@ async function futureWeather(url) {
     }
 }
 //生活指数
-let lifeStylUrl = `https://free-api.heweather.net/s6/weather/lifestyle?location=${id}&key=b1eac8ade8b749bfb154b194a06964a4`;
+let lifeStylUrl = `https://free-api.heweather.net/s6/weather/lifestyle?location=${id}&key=6911bd750d504bd882c64c4f35508433`;
 const lifeStyleItem = document.querySelectorAll('.lifestyle-item');
 const lifeStyleTc = document.querySelector(".lifestyle-tc");
 async function lifeStyle(url) {
@@ -146,7 +146,7 @@ async function lifeStyle(url) {
             return;
         }else if(url != lifeStylUrl) {
             id = res.data.location[0].id;
-            lifeStylUrl = `https://free-api.heweather.net/s6/weather/lifestyle?location=${id}&key=b1eac8ade8b749bfb154b194a06964a4`;
+            lifeStylUrl = `https://free-api.heweather.net/s6/weather/lifestyle?location=${id}&key=6911bd750d504bd882c64c4f35508433`;
         }
         res = await axios.get(lifeStylUrl);
         //lifeStyleItem是个伪数组，无法使用数组的方法，需要调用下面这个操作遍历
